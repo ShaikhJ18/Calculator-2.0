@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.outer-box{
+    text-align: center;
+    margin-top: 300px;
+}
+.first-few-boxes{
+    display: flex;
+    justify-content: center;
+}
+button{
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    background-color: #505050;
+    margin: 3px 3px 3px;
+    padding: 10px 10px 10px 10px;
+    color: white;
+    font-size: 20px;
+    border: 2px solid;
+    border-color: #505050;
+    transition: 0.5s;
+}
+button:hover{
+    translate: 2px;
+    background-color: antiquewhite;
+}
+button:active{
+    background-color: aqua;
+}

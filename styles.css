@@ -2,31 +2,73 @@
     margin: 0;
     padding: 0;
 }
+body{
+    background-color: #1C1C1C;
+}
 .outer-box{
+    margin-right: 45rem;
+    margin-left: 45rem;
     text-align: center;
-    margin-top: 300px;
+    margin-top: 200px;
+    margin-bottom: 30px;
+    background-color: black;
+    border-radius: 55px;
+    
 }
 .first-few-boxes{
     display: flex;
     justify-content: center;
 }
+.screen{
+    padding-top: 30px;
+    padding-bottom: 30px;
+    font-size: 40px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: white;
+}
+footer{
+    font-size: 20px ;
+    text-align: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: white;
+}
+.zero,.equal,.decimal{
+    margin-bottom: 30px;
+}
 button{
-    height: 60px;
-    width: 60px;
+    height: 100px;
+    width: 100px;
     border-radius: 50%;
     background-color: #505050;
     margin: 3px 3px 3px;
     padding: 10px 10px 10px 10px;
     color: white;
-    font-size: 20px;
+    font-size: 40px;
     border: 2px solid;
     border-color: #505050;
-    transition: 0.5s;
+    transition: 0.3s;
+}
+.divide,.multiply,.add,.subtract,.equal{
+    background-color: #FF9500;
+    border-color: #FF9500;
+}
+.clear,.positive-negative,.percentage{
+    background-color: #D4D4D2;
+    border-color: #D4D4D2;
+    color: #1C1C1C;
+}
+.zero{
+    height: 100px;
+    width: 210px;
+    border-radius: 55px;
+    padding-right: 130px;
 }
 button:hover{
-    translate: 2px;
+    box-shadow: 5px 5px 0 orange;
     background-color: antiquewhite;
+    border-color: antiquewhite;
 }
 button:active{
-    background-color: aqua;
+    background-color: lightslategray;
+    border-color: lightslategray;
 }

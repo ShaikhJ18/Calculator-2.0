@@ -24,7 +24,9 @@ const equalBtn = document.querySelector(".equal")
 let screenvalueString = ""
 let screenArray = [];
 
-
+num1 = "";
+num2 = "";
+operationToUse = ""
 function isOperator(){
     if (screenArray.slice(-1) == '+' || screenArray.slice(-1) == '-' || screenArray.slice(-1) == 'x' || screenArray.slice(-1) == '/'){
         return True
@@ -119,5 +121,4 @@ multiplyBtn.addEventListener("click",function(){
 divideBtn.addEventListener("click",function(){
     update_screen("/");
 })
-equalBtn.addEventListener("click",completeOperation)
 clear.addEventListener("click",clearScreen)

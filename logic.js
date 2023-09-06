@@ -1,31 +1,52 @@
 
 //Create all the event listeners for each button
-const clear = document.addEventListener(".clear")
-const one = document.addEventListener(".one")
-const two = document.addEventListener(".two")
-const three = document.addEventListener(".three")
-const four = document.addEventListener(".four")
-const five = document.addEventListener(".five")
-const six = document.addEventListener(".six")
-const seven = document.addEventListener(".seven")
-const eight = document.addEventListener(".eight")
-const nine = document.addEventListener(".nine")
-const add = document.addEventListener(".add")
-const subtract = document.addEventListener(".subtract")
-const multiply = document.addEventListener(".multiply")
-const divide = document.addEventListener(".divide")
+const clear = document.querySelector(".clear")
+const oneBtn = document.querySelector(".one")
+const twoBtn = document.querySelector(".two")
+const threeBtn = document.querySelector(".three")
+const fourBtn = document.querySelector(".four")
+const fiveBtn = document.querySelector(".five")
+const sixBtn = document.querySelector(".six")
+const sevenBtn = document.querySelector(".seven")
+const eightBtn = document.querySelector(".eight")
+const nineBtn = document.querySelector(".nine")
+const zeroBtn = document.querySelector(".zero")
+const addBtn = document.querySelector(".add")
+const subtractBtn = document.querySelector(".subtract")
+const multiplyBtn = document.querySelector(".multiply")
+const divideBtn = document.querySelector(".divide")
+const screen = document.querySelector(".screen");
+const equalBtn = document.querySelector(".equal")
 
 //store the "screen-value" in an array
 //will push values to the array after each key is pressed
 //then evalute the values within the array 
-let screenvalue = []
+let screenvalueString = ""
+let screenArray = [];
 
+
+function isOperator(){
+    if (screenArray.slice(-1) == '+' || screenArray.slice(-1) == '-' || screenArray.slice(-1) == 'x' || screenArray.slice(-1) == '/'){
+        return True
+    }
+    else {
+        return false
+    }
+}
 function update_screen(value){
-    screenvalue.push(value)
+    if ((value == '+' && isOperator()) || (value == '-' && isOperator()) || (value == 'x' && isOperator()) || (value == '/' && isOperator())){
+        screenArray.pop()
+    }
+    if (screenArray.length < 15){
+        screenArray.push(value);
+        screen.innerHTML = screenArray.join("");
+    }
 }
-function clear(){
-    screenvalue = [""]
+function clearScreen(){
+    screenArray = [""]
+    screen.innerHTML = "0"
 }
+
 function operate(num1,num2,operation){
     if (operation == '+'){
         return add(num1,num2)
@@ -44,15 +65,59 @@ function operate(num1,num2,operation){
     }
 }
 
-function add(num1,num2,operation){
+function add(num1,num2){
     return parseInt(num1) + parseInt(num2)
 }
-function subtract(num1,num2,operation){
+function subtract(num1,num2){
     return parseInt(num1) - parseInt(num2)
 }
-function multiply(num1,num2,operation){
+function multiply(num1,num2){
     return parseInt(num1) * parseInt(num2)
 }
-function divide(num1,num2,operation){
+function divide(num1,num2){
     return parseInt(num1) / parseInt(num2)
 }
+oneBtn.addEventListener("click",function(){
+    update_screen(1);
+})
+twoBtn.addEventListener("click",function(){
+    update_screen(2);
+})
+threeBtn.addEventListener("click",function(){
+    update_screen(3);
+})
+fourBtn.addEventListener("click",function(){
+    update_screen(4);
+})
+fiveBtn.addEventListener("click",function(){
+    update_screen(5);
+})
+sixBtn.addEventListener("click",function(){
+    update_screen(6);
+})
+sevenBtn.addEventListener("click",function(){
+    update_screen(7);
+})
+eightBtn.addEventListener("click",function(){
+    update_screen(8);
+})
+nineBtn.addEventListener("click",function(){
+    update_screen(9);
+})
+zeroBtn.addEventListener("click",function(){
+    update_screen(0);
+})
+addBtn.addEventListener("click",function(){
+    update_screen('+');
+})
+subtractBtn.addEventListener("click",function(){
+    update_screen("-");
+})
+multiplyBtn.addEventListener("click",function(){
+    update_screen("x");
+})
+divideBtn.addEventListener("click",function(){
+    update_screen("/");
+})
+equalBtn.addEventListener("click",completeOperation)
+clear.addEventListener("click",clearScreen)
